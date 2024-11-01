@@ -4,8 +4,9 @@ Uses stream device protocol to send email notifications from IOC. Based on this 
 
 ## Requirements
 
-streamDevice: IOC interfaces with sendmail using stream. More info here: https://paulscherrerinstitute.github.io/StreamDevice/
-std module: Screens use timer screens from std module. More info here: https://github.com/epics-modules/std
+- streamDevice: IOC interfaces with sendmail using stream. More info here: https://paulscherrerinstitute.github.io/StreamDevice/
+
+- std module: Screens use timer screens from std module. More info here: https://github.com/epics-modules/std
 
 ## Adding to an existing IOC
 
