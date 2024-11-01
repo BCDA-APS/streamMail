@@ -1,0 +1,36 @@
+Terminator = CR LF;
+ExtraInput = Ignore;
+ReplyTimeout = 1000;
+
+@mismatch { out "QUIT"; disconnect; }
+
+mail_start {
+    connect 10000;
+    in  "220";
+    out "HELO \$1";
+    in  "250";
+    out "MAIL FROM:%(\$2\$3)s";
+    in  "250";
+    out "RCPT TO:%(\$2\$4)s";
+    in  "250";
+    out "DATA";
+    in  "354";
+    out "From: %(\$2\$3)s";
+    out "To: %(\$2\$4)s";
+    out "Subject: Report from %(\$2\$3)s";
+    out "";
+    @mismatch {in "%(\$2\$5)s";}
+}
+
+mail_end {
+    out ".";
+    in  "250";
+    out "QUIT";
+    disconnect;
+}
+
+send {
+    mail_start;
+    out "You've been notified because: \n\r %s";
+    mail_end;
+}

@@ -1,0 +1,21 @@
+# set the protocol path for streamDevice
+epicsEnvSet("STREAM_PROTOCOL_PATH", "$(STREAM_PROTOCOL_PATH):$(SMAIL)/sMailApp/Db")
+set_requestfile_path("$(SMAIL)", "/sMailApp/Db")
+
+drvAsynIPPortConfigure("mailPORT","$(MSERVER):25",0,0,0)
+
+epicsEnvSet("SMPREFIX","strMail")
+
+# Simple streamMail support
+#dbLoadRecords("$(SMAIL)/sMailApp/Db/streamMail.db","P=$(PREFIX),MPORT=mailPORT,MSERVER=$(MSERVER),SM=strMail,FROM=$(ADDRFROM),TO=$(ADDRTO)")
+
+# Load 10 notifiers
+dbLoadTemplate("$(SMAIL)/sMailApp/Db/streamMail.substitutions","PREFIX=$(PREFIX),MPORT=mailPORT,MSERVER=$(MSERVER),SM=$(SMPREFIX),FROM=$(ADDRFROM),TO=$(ADDRTO)")
+#dbLoadRecords("$(SMAIL)/sMailApp/Db/streamMail_common.db","P=$(PREFIX),SM=$(SMPREFIX)")
+
+## Asyn record support for serial port
+# use the following for troubleshooting
+dbLoadRecords("$(ASYN)/db/asynRecord.db","P=$(PREFIX),R=SMasyn,PORT=mailPORT,ADDR=0,OMAX=0,IMAX=256")
+
+asynSetTraceIOMask("mailPORT",0,0x1)
+asynSetTraceMask("mailPORT",0,0x9)

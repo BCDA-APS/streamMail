@@ -1,0 +1,280 @@
+################################################################################
+#
+# Set of PVs needed for each notifier
+#
+#
+# Notification types
+#	single: sends email when condition met, then turns off notifier; user
+#           needs to re-enable
+#	fixed-frequency: sends email when condition met, turns off notifier, waits
+#			designated period, then re-enables notifier
+#	multiple: sends email; notifier stayes enabled so notifications could
+#           be frequent
+#
+################################################################################
+
+record(waveform, "$(P)$(SM):mail$(N)") {
+    field(DTYP, "stream")
+	field(FTVL, "CHAR")
+	field(NORD, "256")
+	field(NELM, "256")
+    field(INP,  "@streamMail.proto send($(MSERVER),$(P)$(SM):,addrFrom$(N),addrTo$(N),mail$(N)_error) $(MPORT)")
+    field(SCAN, "Passive")
+    field(FLNK, "$(P)$(SM):loop$(N).PROC CA")
+    field(PINI, "NO")
+}
+
+record(waveform, "$(P)$(SM):clearedMail$(N)") {
+    field(DTYP, "stream")
+	field(FTVL, "CHAR")
+	field(NORD, "256")
+	field(NELM, "256")
+    field(INP,  "@streamMail.proto send($(MSERVER),$(P)$(SM):,addrFrom$(N),addrTo$(N),mail$(N)_error) $(MPORT)")
+    field(SCAN, "Passive")
+    field(PINI, "NO")
+}
+
+record(stringin, "$(P)$(SM):mail$(N)_error") {
+}
+
+record(calcout, "$(P)$(SM):mail$(N)_retry"){
+	field(INPA, "$(P)$(SM):mail$(N).STAT CP")
+	field(CALC, "A=12?1:0")
+	field(OOPT, "Transition To Non-zero")
+	field(OUT, "$(P)$(SM):mail$(N).PROC CA")
+}
+	
+record(sseq, "$(P)$(SM):loop$(N)"){
+	field(SELM, "Mask")
+	field(SELL, "$(P)$(SM):loopMode$(N)")
+	# Single notification/Fixed frequency --> disables notifications
+#!	field(DOL1, "")
+	field(DO1, "0")
+#!	field(STR1, "")
+	field(LNK1, "$(P)$(SM):notificationEnable$(N) PP")
+	# Fixed frequency notifications/re-checks --> start timer, re-enables notifications
+	field(DOL2, "$(P)$(SM):notifySeconds$(N).VAL PP")
+	field(LNK2, "$(P)$(SM):timer$(N):preset PP")
+	field(DLY4, "1.0")
+	field(DO3, "1")
+	field(LNK3, "$(P)$(SM):notifyON$(N).VAL PP")
+	field(DO4, "1")
+	field(LNK4, "$(P)$(SM):timer$(N):Go.VAL PP")
+}
+
+record(calc, "$(P)$(SM):loopMode$(N)") {
+	field(INPA, "$(P)$(SM):notifyType$(N) CP")
+	field(CALC, "A=0?1:15")
+}
+
+record(stringout, "$(P)$(SM):addrTo$(N)") {
+    field(DTYP, "Soft Channel")
+    field(SCAN, "Passive")
+    field(VAL, "$(TO)")
+}
+
+record(stringout, "$(P)$(SM):addrFrom$(N)") {
+    field(DTYP, "Soft Channel")
+    field(SCAN, "Passive")
+    field(VAL, "$(FROM)")
+}
+
+record(mbbo, "$(P)$(SM):condition$(N)_type"){
+	field(ZRST, "Less than")
+	field(ONST, "Less than or Equal to")
+	field(TWST, "Equal to")
+	field(THST, "Greater than or Equal to")
+	field(FRST, "Greater than")
+    field(PINI, "NO")
+
+	}
+
+record(ao, "$(P)$(SM):condition$(N)_val"){
+	field(DESC, "Value compared to")
+    field(PINI, "NO")
+}
+
+record(ao, "$(P)$(SM):condition$(N)_db"){
+	field(DESC, "Deadband for condition value")
+}
+
+record(transform, "$(P)$(SM):condition$(N)") {
+  field(INPA, "$(P)$(SM):condition$(N)_type")
+  field(INPB, "$(P)$(SM):condition$(N)_val")
+  field(INPC, "$(P)$(SM):condition$(N)_db")
+  field(CMTD, "PV set by user")
+  field(CLCE, "D < B?1:0")
+  field(CLCF, "D <= B?1:0")
+  field(CLCG, "D == B?1:0")
+  field(CLCH, "D >= B?1:0")
+  field(CLCI, "D > B?1:0")
+  field(CLCJ, "@(A+4)")
+  field(DISV, "0")
+  field(SDIS, "$(P)$(SM):conditionEnable$(N) CA MS")
+  field(FLNK, "$(P)$(SM):compose$(N).PROC CA")
+  field(PINI, "NO")
+}
+
+record(sseq, "$(P)$(SM):reEnable$(N)") {
+	field(DO1, "1")
+	field(LNK1, "$(P)$(SM):notificationEnable$(N) PP")
+	field(DO2, "0")
+	field(LNK2, "$(P)$(SM):notifyON$(N).VAL PP")
+	field(FLNK, "$(P)$(SM):reSendCalc$(N).PROC CA")
+}	
+
+record(calcout, "$(P)$(SM):reSendCalc$(N)") {
+	field(INPA, "$(P)$(SM):notifyType$(N)")
+	field(INPB, "$(P)$(SM):condition$(N).J")
+	field(CALC, "A=1?1:(A=2?B:0)")
+	field(OOPT, "When Non-zero")
+	field(OUT, "$(P)$(SM):composeLong$(N).PROC CA")
+}
+
+record(bo, "$(P)$(SM):conditionEnable$(N)"){
+  field(DESC, "Condition $(N) Enable")
+  field(ZNAM, "D")
+  field(ONAM, "E")
+  field(UDF, "0")
+  field(STAT, "NO_ALARM")
+  field(SEVR, "NO_ALARM")
+}
+
+record(bo, "$(P)$(SM):notificationEnable$(N)"){
+  field(DESC, "Notification $(N) Enable")
+  field(ZNAM, "D")
+  field(ONAM, "E")
+  field(UDF, "0")
+  field(STAT, "NO_ALARM")
+  field(SEVR, "NO_ALARM")
+}
+
+#checks if conditionEnabled and notifications aren't stopped
+#to set notificationEnabled
+#!record(calcout, "$(P)$(SM):contNotifications$(N)"){
+#!	field(OUT, "$(P)$(SM):notificationEnable$(N) PP")
+#!	field(INPA, "$(P)$(SM):conditionEnable$(N) CP")
+#!	field(INPB, "$(P)$(SM):notifyClear$(N) CP")
+#!	field(CALC, "A&B")
+#!}
+
+record(scalcout, "$(P)$(SM):compose$(N)"){
+	field(INPA, "$(P)$(SM):condition$(N).J")
+    field(INPB, "$(P)$(SM):condition$(N).D")
+    field(INPC, "$(P)$(SM):condition$(N)_val")
+#	field(INAA, "$(P)$(SM):condition$(N).INPD CA") 
+	field(INBB, "$(P)$(SM):condition$(N)_type CA")
+	field(DD, " ")
+	field(OCAL, "DD+STR(B)+DD+BB+DD+STR(C)")
+	field(CALC, "A")
+	field(DOPT, "Use OCAL")
+	field(OOPT, "When Non-zero")
+	field(OUT, "$(P)$(SM):message$(N)_part1 PP")
+	field(DISV, "0")
+	field(SDIS, "$(P)$(SM):notificationEnable$(N)")
+}
+
+record(stringout, "$(P)$(SM):message$(N)_part0") {
+	field(VAL, "Condition$(N) concerning ")
+}
+
+record(stringout, "$(P)$(SM):message$(N)_part1") {
+	field(FLNK, "$(P)$(SM):condition$(N)_PV.PROC CA")
+}
+
+record(stringout, "$(P)$(SM):message$(N)_part2") {
+	field(VAL, " has been met.")
+}
+
+record(waveform, "$(P)$(SM):message$(N)_part4"){
+	field(DESC, "Additional string to add to message")
+	field(FTVL, "CHAR")
+	field(NELM, "256")
+}
+
+
+record(scalcout, "$(P)$(SM):condition$(N)_PV"){
+	field(INAA, "$(P)$(SM):condition$(N).INPD CA")
+	field(CALC, "SSCANF(AA,'%s')")
+	field(FLNK, "$(P)$(SM):composeLong$(N)")
+}
+
+record(printf, "$(P)$(SM):composeLong$(N)") {
+
+    field(SIZV, 256)
+
+    field(FMT, "%s%s%s%s%s")
+
+    field(INP0, "$(P)$(SM):message$(N)_part0")
+    field(INP1, "$(P)$(SM):condition$(N)_PV.SVAL PP")
+    field(INP2, "$(P)$(SM):message$(N)_part1")
+    field(INP3, "$(P)$(SM):message$(N)_part2")
+    field(INP4, "$(P)$(SM):message$(N)_part4")
+
+    field(OUT, "$(P)$(SM):mail$(N) PP")
+
+}
+
+record(mbbo,"$(P)$(SM):notifyType$(N)"){
+	field(DESC, "Handling subsequent notification") 
+	field(ZRST, "Only on first event")
+	field(ONST, "At rate after first event")
+	field(TWST, "Wait and recheck")
+}
+
+record(mbbo,"$(P)$(SM):notifyRate$(N)"){
+	field(DESC, "Time between notifications") 
+	field(ZRST, "1 minute")
+	field(ONST, "5 minutes")
+	field(TWST, "15 minutes")
+	field(THST, "60 minutes")
+	field(FRST, "4 hours")
+}
+
+record(calc,"$(P)$(SM):notifySeconds$(N)"){
+	field(INPA,"$(P)$(SM):notifyRate$(N) CP")
+	field(CALC,"A=0?60:(A=1?300:(A=2?900:(A=3?3600:14000)))")
+}
+record(bi,"$(P)$(SM):notifyON$(N)"){
+	field(ZNAM, "Stopped")
+	field(ONAM, "On-going")
+	field(VAL, "0")
+}
+
+# Clear needs to start seq that:
+# stops the notification loop
+# sets notifyON to off 
+record(sseq,"$(P)$(SM):notifyClear$(N)"){
+	field(DO1, "0")
+	field(LNK1, "$(P)$(SM):notifyON$(N) PP")
+	field(DO2, "0")
+	field(LNK2, "$(P)$(SM):timer$(N):Go PP")
+	field(STR3, "Condition $(N) manually cleared")
+	field(LNK3, "$(P)$(SM):clearedMail$(N) PP")
+	field(DO4, "1")
+	field(LNK4, "$(P)$(SM):notificationEnable$(N) PP")
+}
+
+record(stringin,"$(P)$(SM):lastEmail$(N)"){
+   field(DESC, "Timestamp in M/D/Y H:M:S")
+   field(DTYP, "Soft Timestamp")
+   field(TSEL, "$(P)$(SM):mail$(N).TIME CP")
+   field(INP, "@%Y %b %d %H:%M:%S")
+ 
+}
+
+record(stringin,"$(P)$(SM):lastError$(N)"){
+   field(DESC, "Timestamp in M/D/Y H:M:S")
+   field(DTYP, "Soft Timestamp")
+   field(TSEL, "$(P)$(SM):mail$(N)_error.TIME CP")
+   field(INP, "@%Y %b %d %H:%M:%S")
+ 
+}
+
+record(sseq,"$(P)$(SM):test$(N)"){
+	field(DO1, "1")
+	field(LNK1, "$(P)$(SM):notificationEnable$(N)")
+	field(DO2, "1")
+	field(LNK2, "$(P)$(SM):condition$(N)_PV.PROC CA")
+} 
+

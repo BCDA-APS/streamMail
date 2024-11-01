@@ -1,0 +1,24 @@
+################################################################################
+#
+# Simple test of stream to mail notifications
+#
+################################################################################
+
+record(stringout, "$(P)$(SM):message") {
+    field(DTYP, "stream")
+#    field(OUT,  "@streamMail.proto send($(MSERVER),$(FROM),$(TO)) $(MPORT)")
+    field(OUT,  "@streamMail.proto send($(MSERVER),$(P)$(SM):,addrFrom,addrTo) $(MPORT)")
+    field(SCAN, "Passive")
+}
+
+record(stringout, "$(P)$(SM):addrTo") {
+    field(DTYP, "Soft Channel")
+    field(SCAN, "Passive")
+    field(VAL, "$(TO)")
+}
+
+record(stringout, "$(P)$(SM):addrFrom") {
+    field(DTYP, "Soft Channel")
+    field(SCAN, "Passive")
+    field(VAL, "$(FROM)")
+}
