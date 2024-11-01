@@ -6,6 +6,5 @@ $(P)$(SM):condition$(N)_type
 $(P)$(SM):condition$(N)_val
 $(P)$(SM):condition$(N)_db
 $(P)$(SM):condition$(N).INPD
-$(P)$(SM):notificationEnable$(N)
 $(P)$(SM):notifyType$(N)
 $(P)$(SM):notifyRate$(N)
