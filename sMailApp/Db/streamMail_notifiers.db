@@ -203,7 +203,7 @@ record(printf, "$(P)$(SM):composeLong$(N)") {
 
     field(SIZV, 256)
 
-    field(FMT, "%s%s%s%s%s")
+    field(FMT, "%s%s%s%s%ls")
 
     field(INP0, "$(P)$(SM):message$(N)_part0")
     field(INP1, "$(P)$(SM):condition$(N)_PV.SVAL PP")

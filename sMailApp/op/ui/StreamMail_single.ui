@@ -123,7 +123,7 @@
         <widget class="caLabel" name="calabel_3">
          <property name="font">
           <font>
-           <pointsize>22</pointsize>
+           <pointsize>21</pointsize>
           </font>
          </property>
          <property name="text">
@@ -407,7 +407,7 @@
         <widget class="caLabel" name="calabel_19">
          <property name="font">
           <font>
-           <pointsize>17</pointsize>
+           <pointsize>19</pointsize>
           </font>
          </property>
          <property name="text">
@@ -673,7 +673,7 @@
          </property>
          <property name="font">
           <font>
-           <pointsize>14</pointsize>
+           <pointsize>15</pointsize>
           </font>
          </property>
          <property name="text">
@@ -860,7 +860,7 @@
           <enum>caLineEdit::WidthAndHeight</enum>
          </property>
          <property name="formatType">
-          <enum>caLineEdit::decimal</enum>
+          <enum>caLineEdit::string</enum>
          </property>
         </widget>
        </item>
