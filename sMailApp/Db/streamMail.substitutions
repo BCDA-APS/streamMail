@@ -14,7 +14,7 @@ pattern
 {"$(PREFIX)",	10,	"$(PREFIX)$(SM):reEnable$(N)"	}
 }
 
-file "$(SMAIL)/sMailApp/Db/streamMail_notifiers.db"
+file "$(SMAIL)/sMailApp/Db/streamMail_userNotifiers.db"
 {
 pattern
 {P, 			N	}

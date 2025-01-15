@@ -1,288 +1,293 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1361</width>
-    <height>512</height>
+    <width>1360</width>
+    <height>520</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Form</string>
   </property>
-  <widget class="QWidget" name="centralwidget">
-   <widget class="caFrame" name="caframe_8">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>1451</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="lineWidth">
-     <number>0</number>
-    </property>
-    <property name="background">
-     <color>
-      <red>0</red>
-      <green>53</green>
-      <blue>132</blue>
-     </color>
-    </property>
-    <property name="backgroundMode">
-     <enum>caFrame::Filled</enum>
-    </property>
-    <layout class="QHBoxLayout" name="horizontalLayout">
-     <property name="spacing">
-      <number>5</number>
-     </property>
-     <property name="leftMargin">
-      <number>10</number>
-     </property>
-     <property name="topMargin">
-      <number>2</number>
-     </property>
-     <property name="rightMargin">
-      <number>0</number>
-     </property>
-     <property name="bottomMargin">
-      <number>2</number>
-     </property>
+  <layout class="QVBoxLayout" name="verticalLayout_2">
+   <item>
+    <layout class="QVBoxLayout" name="verticalLayout" stretch="1,1,10,1">
      <item>
-      <widget class="caLabel" name="calabel">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="font">
-        <font>
-         <family>Verdana</family>
-         <pointsize>16</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="text">
-        <string>$(P)$(SM) - StreamMail</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-       </property>
-       <property name="fontScaleMode">
-        <enum>ESimpleLabel::Height</enum>
-       </property>
-       <property name="foreground">
-        <color>
-         <red>228</red>
-         <green>228</green>
-         <blue>228</blue>
-        </color>
+      <widget class="caFrame" name="caframe_8">
+       <property name="lineWidth">
+        <number>0</number>
        </property>
        <property name="background">
-        <color alpha="0">
-         <red>160</red>
-         <green>160</green>
-         <blue>164</blue>
+        <color>
+         <red>0</red>
+         <green>53</green>
+         <blue>132</blue>
         </color>
        </property>
+       <property name="backgroundMode">
+        <enum>caFrame::Filled</enum>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <property name="spacing">
+         <number>5</number>
+        </property>
+        <property name="leftMargin">
+         <number>10</number>
+        </property>
+        <property name="topMargin">
+         <number>2</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>2</number>
+        </property>
+        <item>
+         <widget class="caLabel" name="calabel">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="font">
+           <font>
+            <family>Verdana</family>
+            <pointsize>19</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>$(P)$(SM) - StreamMail</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+          </property>
+          <property name="fontScaleMode">
+           <enum>ESimpleLabel::Height</enum>
+          </property>
+          <property name="foreground">
+           <color>
+            <red>228</red>
+            <green>228</green>
+            <blue>228</blue>
+           </color>
+          </property>
+          <property name="background">
+           <color alpha="0">
+            <red>160</red>
+            <green>160</green>
+            <blue>164</blue>
+           </color>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </widget>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="4,10,2,6,2,8,5,2">
+         <property name="spacing">
+          <number>5</number>
+         </property>
+         <property name="topMargin">
+          <number>2</number>
+         </property>
+         <property name="bottomMargin">
+          <number>2</number>
+         </property>
+         <item>
+          <spacer name="horizontalSpacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="caLabel" name="calabel_3">
+           <property name="text">
+            <string>PV to Watch</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_4">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="caLabel" name="calabel_6">
+           <property name="text">
+            <string>Calc</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_3">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="caLabel" name="calabel_8">
+           <property name="text">
+            <string>Included Message</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="caLabel" name="calabel_4">
+           <property name="text">
+            <string>Notification </string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_4">
+       <item>
+        <widget class="caInclude" name="cainclude">
+         <property name="macro">
+          <string>P=$(P),SM=$(SM),N=$(N1);P=$(P),SM=$(SM),N=$(N2);P=$(P),SM=$(SM),N=$(N3);P=$(P),SM=$(SM),N=$(N4);P=$(P),SM=$(SM),N=$(N5);P=$(P),SM=$(SM),N=$(N6);P=$(P),SM=$(SM),N=$(N7);P=$(P),SM=$(SM),N=$(N8);P=$(P),SM=$(SM),N=$(N9);P=$(P),SM=$(SM),N=$(N10)</string>
+         </property>
+         <property name="filename" stdset="0">
+          <string notr="true">StreamMail_line.ui</string>
+         </property>
+         <property name="numberOfItems" stdset="0">
+          <number>10</number>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_5" stretch="7,1">
+       <property name="spacing">
+        <number>2</number>
+       </property>
+       <item>
+        <spacer name="horizontalSpacer_5">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="caRelatedDisplay" name="caRelatedDisplay_1">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="font">
+          <font>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="label">
+          <string notr="true">-Help</string>
+         </property>
+         <property name="foreground">
+          <color>
+           <red>255</red>
+           <green>255</green>
+           <blue>255</blue>
+          </color>
+         </property>
+         <property name="background">
+          <color>
+           <red>40</red>
+           <green>147</green>
+           <blue>21</blue>
+          </color>
+         </property>
+         <property name="labels">
+          <string/>
+         </property>
+         <property name="files">
+          <string>streamMail_help.ui</string>
+         </property>
+         <property name="args">
+          <string/>
+         </property>
+         <property name="stackingMode" stdset="0">
+          <enum>caRowColMenu::Menu</enum>
+         </property>
+         <property name="removeParent" stdset="0">
+          <string>false</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </item>
     </layout>
-   </widget>
-   <widget class="caInclude" name="cainclude">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>70</y>
-      <width>1351</width>
-      <height>371</height>
-     </rect>
-    </property>
-    <property name="macro">
-     <string>P=$(P),SM=$(SM),N=1;P=$(P),SM=$(SM),N=2;P=$(P),SM=$(SM),N=3;P=$(P),SM=$(SM),N=4;P=$(P),SM=$(SM),N=5;P=$(P),SM=$(SM),N=6;P=$(P),SM=$(SM),N=7;P=$(P),SM=$(SM),N=8;P=$(P),SM=$(SM),N=9;P=$(P),SM=$(SM),N=10</string>
-    </property>
-    <property name="filename" stdset="0">
-     <string notr="true">StreamMail_line.ui</string>
-    </property>
-    <property name="numberOfItems" stdset="0">
-     <number>10</number>
-    </property>
-   </widget>
-   <widget class="QWidget" name="horizontalLayoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>40</y>
-      <width>1351</width>
-      <height>30</height>
-     </rect>
-    </property>
-    <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="4,10,2,6,2,8,5,2">
-     <property name="spacing">
-      <number>5</number>
-     </property>
-     <property name="topMargin">
-      <number>2</number>
-     </property>
-     <property name="bottomMargin">
-      <number>2</number>
-     </property>
-     <item>
-      <spacer name="horizontalSpacer">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
-      <widget class="caLabel" name="calabel_3">
-       <property name="text">
-        <string>PV to Watch</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <spacer name="horizontalSpacer_4">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
-      <widget class="caLabel" name="calabel_6">
-       <property name="text">
-        <string>Calc</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <spacer name="horizontalSpacer_3">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
-      <widget class="caLabel" name="calabel_8">
-       <property name="text">
-        <string>Included Message</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="caLabel" name="calabel_4">
-       <property name="text">
-        <string>Notification </string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <spacer name="horizontalSpacer_2">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-    </layout>
-   </widget>
-   <widget class="caRelatedDisplay" name="caRelatedDisplay_1">
-    <property name="geometry">
-     <rect>
-      <x>1210</x>
-      <y>450</y>
-      <width>141</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="sizePolicy">
-     <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
-      <horstretch>0</horstretch>
-      <verstretch>0</verstretch>
-     </sizepolicy>
-    </property>
-    <property name="font">
-     <font>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="label">
-     <string notr="true">-Help</string>
-    </property>
-    <property name="foreground">
-     <color>
-      <red>255</red>
-      <green>255</green>
-      <blue>255</blue>
-     </color>
-    </property>
-    <property name="background">
-     <color>
-      <red>40</red>
-      <green>147</green>
-      <blue>21</blue>
-     </color>
-    </property>
-    <property name="labels">
-     <string/>
-    </property>
-    <property name="files">
-     <string>streamMail_help.ui</string>
-    </property>
-    <property name="args">
-     <string/>
-    </property>
-    <property name="stackingMode" stdset="0">
-     <enum>caRowColMenu::Menu</enum>
-    </property>
-    <property name="removeParent" stdset="0">
-     <string>false</string>
-    </property>
-   </widget>
-  </widget>
-  <widget class="QStatusBar" name="statusbar"/>
+   </item>
+  </layout>
  </widget>
  <customwidgets>
   <customwidget>

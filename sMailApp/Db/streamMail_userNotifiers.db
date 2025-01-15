@@ -70,13 +70,13 @@ record(calc, "$(P)$(SM):loopMode$(N)") {
 record(stringout, "$(P)$(SM):addrTo$(N)") {
     field(DTYP, "Soft Channel")
     field(SCAN, "Passive")
-    field(VAL, "$(EMAILTO)")
+    field(VAL, "$(TO)")
 }
 
 record(stringout, "$(P)$(SM):addrFrom$(N)") {
     field(DTYP, "Soft Channel")
     field(SCAN, "Passive")
-    field(VAL, "$(EMAILFROM)")
+    field(VAL, "$(FROM)")
 }
 
 record(mbbo, "$(P)$(SM):condition$(N)_type"){
@@ -86,12 +86,11 @@ record(mbbo, "$(P)$(SM):condition$(N)_type"){
 	field(THST, "Greater than or Equal to")
 	field(FRST, "Greater than")
     field(PINI, "NO")
-    field(RVAL, "$(COMPTYPE)")
-}
+
+	}
 
 record(ao, "$(P)$(SM):condition$(N)_val"){
 	field(DESC, "Value compared to")
-	field(VAL, "$(TRIGGERVAL)")
     field(PINI, "NO")
 }
 
@@ -103,7 +102,6 @@ record(transform, "$(P)$(SM):condition$(N)") {
   field(INPA, "$(P)$(SM):condition$(N)_type")
   field(INPB, "$(P)$(SM):condition$(N)_val")
   field(INPC, "$(P)$(SM):condition$(N)_db")
-  field(INPD, "$(WATCH)")
   field(CMTD, "PV set by user")
   field(CLCE, "D < B?1:0")
   field(CLCF, "D <= B?1:0")
@@ -222,7 +220,6 @@ record(mbbo,"$(P)$(SM):notifyType$(N)"){
 	field(ZRST, "Only on first event")
 	field(ONST, "At rate after first event")
 	field(TWST, "Wait and recheck")
-	field(RVAL, "$(FREQTYPE)")
 }
 
 record(mbbo,"$(P)$(SM):notifyRate$(N)"){
@@ -232,7 +229,6 @@ record(mbbo,"$(P)$(SM):notifyRate$(N)"){
 	field(TWST, "15 minutes")
 	field(THST, "60 minutes")
 	field(FRST, "4 hours")
-	field(RVAL, "$(FREQENUM)")
 }
 
 record(calc,"$(P)$(SM):notifySeconds$(N)"){

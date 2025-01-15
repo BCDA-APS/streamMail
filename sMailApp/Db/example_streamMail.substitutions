@@ -1,0 +1,119 @@
+#Timers for Vacuum-related notifiers
+file "$(SMAIL)/sMailApp/Db/mail_timer.db"
+{
+pattern
+{P, 				N, 	TFLNK		}
+{"$(PREFIX)",	"V1",	"$(PREFIX)$(SM):reEnable$(N)" 	}
+{"$(PREFIX)",	"V2",	"$(PREFIX)$(SM):reEnable$(N)"	}
+{"$(PREFIX)",	"V3",	"$(PREFIX)$(SM):reEnable$(N)"	}
+{"$(PREFIX)",	"V4",	"$(PREFIX)$(SM):reEnable$(N)"	}
+{"$(PREFIX)",	"V5",	"$(PREFIX)$(SM):reEnable$(N)"	}
+{"$(PREFIX)",	"V6",	"$(PREFIX)$(SM):reEnable$(N)"	}
+{"$(PREFIX)",	"V7",	"$(PREFIX)$(SM):reEnable$(N)"	}
+{"$(PREFIX)",	"V8",	"$(PREFIX)$(SM):reEnable$(N)"	}
+{"$(PREFIX)",	"V9",	"$(PREFIX)$(SM):reEnable$(N)"	}
+{"$(PREFIX)",	"V10",	"$(PREFIX)$(SM):reEnable$(N)"	}
+{"$(PREFIX)",	"V11",	"$(PREFIX)$(SM):reEnable$(N)"	}
+{"$(PREFIX)",	"V12",	"$(PREFIX)$(SM):reEnable$(N)" 	}
+{"$(PREFIX)",	"V13",	"$(PREFIX)$(SM):reEnable$(N)"	}
+{"$(PREFIX)",	"V14",	"$(PREFIX)$(SM):reEnable$(N)"	}
+{"$(PREFIX)",	"V15",	"$(PREFIX)$(SM):reEnable$(N)"	}
+{"$(PREFIX)",	"V16",	"$(PREFIX)$(SM):reEnable$(N)"	}
+{"$(PREFIX)",	"V17",	"$(PREFIX)$(SM):reEnable$(N)"	}
+{"$(PREFIX)",	"V18",	"$(PREFIX)$(SM):reEnable$(N)"	}
+{"$(PREFIX)",	"V19",	"$(PREFIX)$(SM):reEnable$(N)"	}
+{"$(PREFIX)",	"V20",	"$(PREFIX)$(SM):reEnable$(N)"	}
+{"$(PREFIX)",	"V21",	"$(PREFIX)$(SM):reEnable$(N)"	}
+{"$(PREFIX)",	"V22",	"$(PREFIX)$(SM):reEnable$(N)"	}
+}
+
+#Timers for Cryo-related notifiers
+file "$(SMAIL)/sMailApp/Db/mail_timer.db"
+{
+pattern
+{P, 				N, 	TFLNK		}
+{"$(PREFIX)",	"C1",	"$(PREFIX)$(SM):reEnable$(N)" 	}
+{"$(PREFIX)",	"C2",	"$(PREFIX)$(SM):reEnable$(N)"	}
+{"$(PREFIX)",	"C3",	"$(PREFIX)$(SM):reEnable$(N)"	}
+{"$(PREFIX)",	"C4",	"$(PREFIX)$(SM):reEnable$(N)"	}
+{"$(PREFIX)",	"C5",	"$(PREFIX)$(SM):reEnable$(N)"	}
+{"$(PREFIX)",	"C6",	"$(PREFIX)$(SM):reEnable$(N)"	}
+{"$(PREFIX)",	"C7",	"$(PREFIX)$(SM):reEnable$(N)"	}
+{"$(PREFIX)",	"C8",	"$(PREFIX)$(SM):reEnable$(N)"	}
+{"$(PREFIX)",	"C9",	"$(PREFIX)$(SM):reEnable$(N)"	}
+{"$(PREFIX)",	"C10",	"$(PREFIX)$(SM):reEnable$(N)"	}
+{"$(PREFIX)",	"C11",	"$(PREFIX)$(SM):reEnable$(N)"	}
+{"$(PREFIX)",	"C12",	"$(PREFIX)$(SM):reEnable$(N)" 	}
+{"$(PREFIX)",	"C13",	"$(PREFIX)$(SM):reEnable$(N)"	}
+{"$(PREFIX)",	"C14",	"$(PREFIX)$(SM):reEnable$(N)"	}
+{"$(PREFIX)",	"C15",	"$(PREFIX)$(SM):reEnable$(N)"	}
+{"$(PREFIX)",	"C16",	"$(PREFIX)$(SM):reEnable$(N)"	}
+{"$(PREFIX)",	"C17",	"$(PREFIX)$(SM):reEnable$(N)"	}
+{"$(PREFIX)",	"C18",	"$(PREFIX)$(SM):reEnable$(N)"	}
+{"$(PREFIX)",	"C19",	"$(PREFIX)$(SM):reEnable$(N)"	}
+{"$(PREFIX)",	"C20",	"$(PREFIX)$(SM):reEnable$(N)"	}
+{"$(PREFIX)",	"C21",	"$(PREFIX)$(SM):reEnable$(N)"	}
+{"$(PREFIX)",	"C22",	"$(PREFIX)$(SM):reEnable$(N)"	}
+{"$(PREFIX)",	"C23",	"$(PREFIX)$(SM):reEnable$(N)"	}
+{"$(PREFIX)",	"C24",	"$(PREFIX)$(SM):reEnable$(N)"	}
+}
+
+#Vacuum related notifiers
+file "$(SMAIL)/sMailApp/Db/streamMail_notifiers.db"
+{
+pattern
+{P, 			N,		WATCH,							TRIGGERVAL,	COMPTYPE,	FREQTYPE,	FREQENUM,	EMAILFROM,			EMAIL		}
+{"$(PREFIX)",	"V1",	"25idVac:qpc01a:Pressure CP",	6.2e-9,		4,			0,			3,			"25idVac@anl.gov",	"mpape@anl.gov"}
+{"$(PREFIX)",	"V2",	"25idVac:qpc02a:Pressure CP",	3.7e-9,		4,			0,			3,			"25idVac@anl.gov",	"mpape@anl.gov"}
+{"$(PREFIX)",	"V3",	"25idVac:qpc02b:Pressure CP",	2.7e-8,		4,			0,			3,			"25idVac@anl.gov",	"mpape@anl.gov"}
+{"$(PREFIX)",	"V4",	"25idVac:qpc02c:Pressure CP",	9.2e-9,		4,			0,			3,			"25idVac@anl.gov",	"mpape@anl.gov"}
+{"$(PREFIX)",	"V5",	"25idVac:qpc02d:Pressure CP",	2.5e-9,		4,			0,			3,			"25idVac@anl.gov",	"mpape@anl.gov"}
+{"$(PREFIX)",	"V6",	"25idVac:qpc03a:Pressure CP",	5.5e-9,		4,			0,			3,			"25idVac@anl.gov",	"mpape@anl.gov"}
+{"$(PREFIX)",	"V7",	"25idVac:qpc03b:Pressure CP",	1.5e-9,		4,			0,			3,			"25idVac@anl.gov",	"mpape@anl.gov"}
+{"$(PREFIX)",	"V8",	"25idVac:qpc03c:Pressure CP",	7.5e-9,		4,			0,			3,			"25idVac@anl.gov",	"mpape@anl.gov"}
+{"$(PREFIX)",	"V9",	"25idVac:qpc03d:Pressure CP",	7.5e-9,		4,			0,			3,			"25idVac@anl.gov",	"mpape@anl.gov"}
+{"$(PREFIX)",	"V10",	"25idVac:VSB5.VAL CP",       	7.5e-8,		4,			0,			3,			"25idVac@anl.gov",	"mpape@anl.gov"}
+{"$(PREFIX)",	"V11",	"25idVac:VSB7.VAL CP",       	1e-8,		4,			0,			3,			"25idVac@anl.gov",	"mpape@anl.gov"}
+{"$(PREFIX)",	"V12"	"25idVac:qpc01a:Pressure CP",	1.5e-8,		4,			0,			3,			"25idVac@anl.gov",	"xsdspc@lists.anl.gov"}
+{"$(PREFIX)",	"V13"	"25idVac:qpc02a:Pressure CP",	8.7e-9,		4,			0,			3,			"25idVac@anl.gov",	"xsdspc@lists.anl.gov"}
+{"$(PREFIX)",	"V14"	"25idVac:qpc02b:Pressure CP",	7.7e-8,		4,			0,			3,			"25idVac@anl.gov",	"xsdspc@lists.anl.gov"}
+{"$(PREFIX)",	"V15"	"25idVac:qpc02c:Pressure CP",	5.2e-8,		4,			0,			3,			"25idVac@anl.gov",	"xsdspc@lists.anl.gov"}
+{"$(PREFIX)",	"V16"	"25idVac:qpc02d:Pressure CP",	7.5e-9,		4,			0,			3,			"25idVac@anl.gov",	"xsdspc@lists.anl.gov"}
+{"$(PREFIX)",	"V17"	"25idVac:qpc03a:Pressure CP",	1.5e-8,		4,			0,			3,			"25idVac@anl.gov",	"xsdspc@lists.anl.gov"}
+{"$(PREFIX)",	"V18"	"25idVac:qpc03b:Pressure CP",	5.5e-9,		4,			0,			3,			"25idVac@anl.gov",	"xsdspc@lists.anl.gov"}
+{"$(PREFIX)",	"V19"	"25idVac:qpc03c:Pressure CP",	2.5e-8,		4,			0,			3,			"25idVac@anl.gov",	"xsdspc@lists.anl.gov"}
+{"$(PREFIX)",	"V20"	"25idVac:qpc03d:Pressure CP",	2.5e-8,		4,			0,			3,			"25idVac@anl.gov",	"xsdspc@lists.anl.gov"}
+{"$(PREFIX)",	"V21"	"25idVac:VSB5.VAL CP",       	 3e-7,		4,			0,			3,			"25idVac@anl.gov",	"xsdspc@lists.anl.gov"}
+{"$(PREFIX)",	"V22"	"25idVac:VSB7.VAL CP",       	 6e-8,		4,			0,			3,			"25idVac@anl.gov",	"xsdspc@lists.anl.gov"}
+}
+
+#Cryo related notifiers
+file "$(SMAIL)/sMailApp/Db/streamMail_notifiers.db"
+{
+pattern
+{P, 			N,		WATCH,								TRIGGERVAL,	COMPTYPE,	FREQTYPE,	FREQVAL,	EMAILFROM,			EMAILTO		}
+{"$(PREFIX)",	"C1",	"25idVac:LerixCC:PV_T6 CP",			 86,		4,			0,			3,			"25idVac@anl.gov",	"mpape@anl.gov"}
+{"$(PREFIX)",	"C2",	"25idVac:LerixCC:PV_LT23 CP",		 25,		0,			0,			3,			"25idVac@anl.gov",	"mpape@anl.gov"}
+{"$(PREFIX)",	"C3",	"25idVac:LerixCC:PV_LT19 CP",		 19,		0,			0,			3,			"25idVac@anl.gov",	"mpape@anl.gov"}
+{"$(PREFIX)",	"C4",	"25idVac:LerixCC:PV_PT3 CP",		 4.5,		4,			0,			3,			"25idVac@anl.gov",	"mpape@anl.gov"}
+{"$(PREFIX)",	"C5",	"25idVac:UprobeCC:PV_T6 CP",		 86,		4,			0,			3,			"25idVac@anl.gov",	"mpape@anl.gov"}
+{"$(PREFIX)",	"C6",	"25idVac:UprobeCC:PV_LT23 CP",  	 25,		0,			0,			3,			"25idVac@anl.gov",	"mpape@anl.gov"}
+{"$(PREFIX)",	"C7",	"25idVac:UprobeCC:PV_LT19 CP", 		 19,		0,			0,			3,			"25idVac@anl.gov",	"mpape@anl.gov"}
+{"$(PREFIX)",	"C8"	"25idVac:UprobeCC:PV_PT3 CP",		 4.5,		4,			0,			3,			"25idVac@anl.gov",	"mpape@anl.gov"}
+{"$(PREFIX)",	"C9"	"25idVac:LerixCC:PV_T6 CP",			 95       	4,			0,			3,			"25idVac@anl.gov",	"xsdspc@lists.anl.gov"}
+{"$(PREFIX)",	"C10"	"25idVac:LerixCC:CC_READY CP",		 0       	1,			0,			3,			"25idVac@anl.gov",	"xsdspc@lists.anl.gov"}
+{"$(PREFIX)",	"C11"	"25idVac:LerixCC:WARM_UP_STAT CP",	 1       	3,			0,			3,			"25idVac@anl.gov",	"xsdspc@lists.anl.gov"}
+{"$(PREFIX)",	"C12"	"25idVac:LerixCC:PV_LT23 CP",		 20       	0,			0,			3,			"25idVac@anl.gov",	"xsdspc@lists.anl.gov"}
+{"$(PREFIX)",	"C13"	"25idVac:LerixCC:PV_LT19 CP",		 15			0,			0,			3,			"25idVac@anl.gov",	"xsdspc@lists.anl.gov"}
+{"$(PREFIX)",	"C14"	"25idVac:LerixCC:PV_LT19 CP",		 50			4,			0,			3,			"25idVac@anl.gov",	"xsdspc@lists.anl.gov"}
+{"$(PREFIX)",	"C15"	"25idVac:LerixCC:PV_PT3 CP",		 8        	4,			0,			3,			"25idVac@anl.gov",	"xsdspc@lists.anl.gov"}
+{"$(PREFIX)",	"C16"	"25idVac:UprobeCC:PV_T6 CP",		 95       	4,			0,			3,			"25idVac@anl.gov",	"xsdspc@lists.anl.gov"}
+{"$(PREFIX)",	"C17"	"25idVac:UprobeCC:CC_READY CP",		 0       	1,			0,			3,			"25idVac@anl.gov",	"xsdspc@lists.anl.gov"}
+{"$(PREFIX)",	"C18"	"25idVac:UprobeCC:WARM_UP_STAT",	 1       	3,			0,			3,			"25idVac@anl.gov",	"xsdspc@lists.anl.gov"}
+{"$(PREFIX)",	"C19"	"25idVac:UprobeCC:PV_LT23 CP",  	 20       	0,			0,			3,			"25idVac@anl.gov",	"xsdspc@lists.anl.gov"}
+{"$(PREFIX)",	"C20"	"25idVac:UprobeCC:PV_LT19 CP", 		 15			0,			0,			3,			"25idVac@anl.gov",	"xsdspc@lists.anl.gov"}
+{"$(PREFIX)",	"C21"	"25idVac:UprobeCC:PV_LT19 CP", 		 50			4,			0,			3,			"25idVac@anl.gov",	"xsdspc@lists.anl.gov"}
+{"$(PREFIX)",	"C22"	"25idVac:UprobeCC:PV_PT3 CP",		 8        	4,			0,			3,			"25idVac@anl.gov",	"xsdspc@lists.anl.gov"}
+}
+
+ 

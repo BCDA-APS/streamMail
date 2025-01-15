@@ -1,0 +1,10 @@
+$(P)$(SM):addrTo$(N)
+$(P)$(SM):addrFrom$(N)
+$(P)$(SM):message$(N)_part4
+$(P)$(SM):conditionEnable$(N)
+$(P)$(SM):condition$(N)_type
+$(P)$(SM):condition$(N)_val
+$(P)$(SM):condition$(N)_db
+$(P)$(SM):condition$(N).INPD
+$(P)$(SM):notifyType$(N)
+$(P)$(SM):notifyRate$(N)
