@@ -149,6 +149,26 @@ record(bo, "$(P)$(SM):notificationEnable$(N)"){
   field(SEVR, "NO_ALARM")
 }
 
+#record(calcout, "$(P)$(SM):notificationEnable$(N)_calc"){
+#	field(INPA, "$(P)$(SM):AllNotificationEnable CP")
+#	field(CALC, "A")
+#	field(OUT, "$(P)$(SM):notificationEnable$(N) PP")
+#}
+
+record(calcout, "$(P)$(SM):notificationEnable$(N)_calc"){
+	field(INPA, "$(P)$(SM):AllNotificationEnable CP")
+	field(CALC, "A")
+	field(OOPT, "Transition To Non-zero")
+	field(OUT, "$(P)$(SM):notificationEnable$(N) PP")
+}
+
+record(calcout, "$(P)$(SM):notificationDisable$(N)_calc"){
+	field(INPA, "$(P)$(SM):AllNotificationDisable CP")
+	field(CALC, "!A")
+	field(OOPT, "Transition To Zero")
+	field(OUT, "$(P)$(SM):notificationEnable$(N) PP")
+}
+
 #checks if conditionEnabled and notifications aren't stopped
 #to set notificationEnabled
 #!record(calcout, "$(P)$(SM):contNotifications$(N)"){

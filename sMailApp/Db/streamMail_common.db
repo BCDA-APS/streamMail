@@ -1,0 +1,55 @@
+################################################################################
+#
+# Mass enable/disable that each notifier subscribes to
+#
+# ODLY needed in unset calcs so that individual notifiers will see their 
+# monitors of the BO records before the Enable/Disable BOs reset
+#
+# Didn't use BUSY for the Enable/Disable because:
+# - all individual notifiers are subscribed via CP links to Enable/Disable
+# - Need FLNK to reset the Enable/Disable
+# - BUSY FLNKs aren't processed when BUSY --> 1
+#
+################################################################################
+
+record(bo, "$(P)$(SM):AllNotificationEnable"){
+  field(DESC, "Enable all notifiers")
+  field(ZNAM, "Available")
+  field(ONAM, "Enabling")
+  field(UDF, "0")
+  field(STAT, "NO_ALARM")
+  field(SEVR, "NO_ALARM")
+  field(VAL, "0")
+  field(PINI, "YES")
+  field(FLNK, "$(P)$(SM):UnsetEnable.PROC CA")  
+}
+
+record(calcout, "$(P)$(SM):UnsetEnable"){
+  field(DESC, "Unset enabler") 
+  field(INPA, "$(P)$(SM):AllNotificationEnable")
+  field(CALC, "!A")
+  field(OOPT, "When Zero")
+  field(ODLY, "2.0")
+  field(OUT, "$(P)$(SM):AllNotificationEnable PP")
+}
+
+record(bo, "$(P)$(SM):AllNotificationDisable"){
+  field(DESC, "Disable all notifiers")
+  field(ZNAM, "Available")
+  field(ONAM, "Disabling")
+  field(UDF, "0")
+  field(STAT, "NO_ALARM")
+  field(SEVR, "NO_ALARM")
+  field(VAL, "0")
+  field(PINI, "YES")
+  field(FLNK, "$(P)$(SM):UnsetDisable.PROC CA")  
+}
+
+record(calcout, "$(P)$(SM):UnsetDisable"){
+  field(DESC, "Unset disabler") 
+  field(INPA, "$(P)$(SM):AllNotificationDisable")
+  field(CALC, "!A")
+  field(OOPT, "When Zero")
+  field(ODLY, "2.0")
+  field(OUT, "$(P)$(SM):AllNotificationDisable PP")
+}

@@ -1,13 +1,14 @@
 ################################################################################
 #
-# streamMail.iocsh
+# streamMail_pd_subs.iocsh
 #  
-# Loads 10 user Notifiers 
+# Loads 10 user Notifiers and pre-defined notifiers from substitutions file
 #
 # PREFIX	- PV prefix
 # MSERVER 	- mail server 
 # ADDRFROM  - default "source" address for user notifiers
 # ADDRTO 	- default destination address for user notifiers
+# SUBS_FILE	- substitutions file for pre-defined notifiers
 #
 ################################################################################
 
@@ -27,6 +28,9 @@ dbLoadRecords("$(SMAIL)/sMailApp/Db/streamMail_common.db","P=$(PREFIX),SM=$(SMPR
 
 # Load 10 notifiers
 dbLoadTemplate("$(SMAIL)/sMailApp/Db/streamMail.substitutions","PREFIX=$(PREFIX),MPORT=mailPORT,MSERVER=$(MSERVER),SM=$(SMPREFIX),FROM=$(ADDRFROM),TO=$(ADDRTO)")
+
+# Load pre-defined notifiers
+dbLoadTemplate("$(SUBS_FILE)","PREFIX=$(PREFIX),MPORT=mailPORT,MSERVER=$(MSERVER),SM=$(SMPREFIX)")
 
 ## Asyn record support for serial port
 # use the following for troubleshooting

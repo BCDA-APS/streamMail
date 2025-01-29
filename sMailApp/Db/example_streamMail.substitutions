@@ -62,7 +62,7 @@ pattern
 file "$(SMAIL)/sMailApp/Db/streamMail_notifiers.db"
 {
 pattern
-{P, 			N,		WATCH,							TRIGGERVAL,	COMPTYPE,	FREQTYPE,	FREQENUM,	EMAILFROM,			EMAIL		}
+{P, 			N,		WATCH,							TRIGGERVAL,	COMPTYPE,	FREQTYPE,	FREQENUM,	EMAILFROM,			EMAILTO		}
 {"$(PREFIX)",	"V1",	"25idVac:qpc01a:Pressure CP",	6.2e-9,		4,			0,			3,			"25idVac@anl.gov",	"mpape@anl.gov"}
 {"$(PREFIX)",	"V2",	"25idVac:qpc02a:Pressure CP",	3.7e-9,		4,			0,			3,			"25idVac@anl.gov",	"mpape@anl.gov"}
 {"$(PREFIX)",	"V3",	"25idVac:qpc02b:Pressure CP",	2.7e-8,		4,			0,			3,			"25idVac@anl.gov",	"mpape@anl.gov"}

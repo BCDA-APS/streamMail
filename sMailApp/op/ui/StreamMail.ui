@@ -218,10 +218,90 @@
       </layout>
      </item>
      <item>
-      <layout class="QHBoxLayout" name="horizontalLayout_5" stretch="7,1">
+      <layout class="QHBoxLayout" name="horizontalLayout_5" stretch="1,1,9,1">
        <property name="spacing">
         <number>2</number>
        </property>
+       <item>
+        <widget class="caMessageButton" name="camessagebutton">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>13</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="channel" stdset="0">
+          <string notr="true">$(P)$(SM):AllNotificationEnable</string>
+         </property>
+         <property name="label">
+          <string notr="true">Mass Enable</string>
+         </property>
+         <property name="foreground">
+          <color>
+           <red>251</red>
+           <green>255</green>
+           <blue>11</blue>
+          </color>
+         </property>
+         <property name="background">
+          <color>
+           <red>53</red>
+           <green>132</green>
+           <blue>0</blue>
+          </color>
+         </property>
+         <property name="pressMessage">
+          <string notr="true">1</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="caMessageButton" name="camessagebutton_2">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>13</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="channel" stdset="0">
+          <string notr="true">$(P)$(SM):AllNotificationDisable</string>
+         </property>
+         <property name="label">
+          <string notr="true">Mass Disable</string>
+         </property>
+         <property name="foreground">
+          <color>
+           <red>251</red>
+           <green>255</green>
+           <blue>11</blue>
+          </color>
+         </property>
+         <property name="background">
+          <color>
+           <red>255</red>
+           <green>0</green>
+           <blue>0</blue>
+          </color>
+         </property>
+         <property name="pressMessage">
+          <string notr="true">1</string>
+         </property>
+        </widget>
+       </item>
        <item>
         <spacer name="horizontalSpacer_5">
          <property name="orientation">
@@ -294,6 +374,11 @@
    <class>caRelatedDisplay</class>
    <extends>QWidget</extends>
    <header>caRelatedDisplay</header>
+  </customwidget>
+  <customwidget>
+   <class>caMessageButton</class>
+   <extends>QPushButton</extends>
+   <header>caMessageButton</header>
   </customwidget>
   <customwidget>
    <class>caFrame</class>
