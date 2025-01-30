@@ -54,27 +54,31 @@ In setting up the substitution file, you can set the comparator type (COMPTYPE),
 
 #### Comparator Values (COMPTYPE) ####
 
-| Value !! Name !! Description
+<center>
+| Value | Name | Description |
 | :--: | :--: | :-- |
 | 0 | Less than | Notifier triggered if PV value is less than Trigger value |
 | 1 | Less than or Equal to | Notifier triggered if PV value is equal to or less than Trigger value |
 | 2 | Equal to | Notifier triggered if PV value is equal Trigger value |
 | 3 | Greater than or Equal to | Notifier triggered if PV value is equal to or more than Trigger value |
 | 4 | Greater than | Notifier triggered if PV value is more than Trigger value |
+</center>
 
 #### Re-notification Type (FREQTYPE) ####
 
+<center>
 | Value | Name | Description |
 | :--: | :--: | :-- |
 | 0 | Only on first event | Email sent on first event then disabled |
 | 1 | At rate after first event || Email sent on first event and the repeated at notification rate (FREQENUM) until cleared |
 | 2 | Wait and recheck | Email sent on first event and then re-checked at FREQENUM.  If still satisfied email sent again until cleared or PV ok|
-
+</center>
 
 #### Frequency (FREQENUM) ####
 
 FREQENUM only matters for if FREQTYPE is 1 or 2:
 
+<center>
 | Value | Name/Description |
 | :--: | :--: |
 | 0 | 1 minute |
@@ -82,7 +86,7 @@ FREQENUM only matters for if FREQTYPE is 1 or 2:
 | 2 | 15 minutes |
 | 3 | 60 minutes |
 | 4 | 4 hours |
-
+</center>
 
 ## caQtDM screens
 
