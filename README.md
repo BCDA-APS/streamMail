@@ -53,8 +53,9 @@ In <top>/sMailApp/Db is an example substitutions file (example_streamMail.substi
 ## caQtDM screens
 
 ### Adding to existing screen
-StreamMail.ui - macros used to load the summary screen: "P=<IOC PREFIX>:,SM=strMail,N1=1,N2=2,N3=3,N4=4,N5=5,N6=6,N7=7,N8=8,N9=9,N10=10"
-StreamMail_single.ui -- macros used to load a single notifier screen (also accessible from summary screen): "P=$(P), SM=$(SM), N=$(N)"
+- StreamMail.ui - macros used to load the summary screen: "P=<IOC PREFIX>:,SM=strMail,N1=1,N2=2,N3=3,N4=4,N5=5,N6=6,N7=7,N8=8,N9=9,N10=10"
+
+- StreamMail_single.ui -- macros used to load a single notifier screen (also accessible from summary screen): "P=$(P), SM=$(SM), N=$(N)"
 
 ### From command line
 Running the main screen from the streamMail ui folder (/streamMail/sMailApp/op/ui) for the devault user notifiers:
