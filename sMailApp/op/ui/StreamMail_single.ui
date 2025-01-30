@@ -1374,7 +1374,7 @@
           <string/>
          </property>
          <property name="files">
-          <string>streamMail_help.ui</string>
+          <string>streamMail_single_help.ui</string>
          </property>
          <property name="args">
           <string/>

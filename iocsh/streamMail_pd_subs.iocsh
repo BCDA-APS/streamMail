@@ -26,8 +26,8 @@ epicsEnvSet("SMPREFIX","strMail")
 # Load mass enable/disable
 dbLoadRecords("$(SMAIL)/sMailApp/Db/streamMail_common.db","P=$(PREFIX),SM=$(SMPREFIX)")
 
-# Load 10 notifiers
-dbLoadTemplate("$(SMAIL)/sMailApp/Db/streamMail.substitutions","PREFIX=$(PREFIX),MPORT=mailPORT,MSERVER=$(MSERVER),SM=$(SMPREFIX),FROM=$(ADDRFROM),TO=$(ADDRTO)")
+# Load 10 User notifiers
+dbLoadTemplate("$(SMAIL)/sMailApp/Db/streamMail_userNotifiers.substitutions","PREFIX=$(PREFIX),MPORT=mailPORT,MSERVER=$(MSERVER),SM=$(SMPREFIX),FROM=$(ADDRFROM),TO=$(ADDRTO)")
 
 # Load pre-defined notifiers
 dbLoadTemplate("$(SUBS_FILE)","PREFIX=$(PREFIX),MPORT=mailPORT,MSERVER=$(MSERVER),SM=$(SMPREFIX)")

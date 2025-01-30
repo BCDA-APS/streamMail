@@ -1,0 +1,32 @@
+file "$(SMAIL)/sMailApp/Db/mail_timer.db"
+{
+pattern
+{P, 				N, 	TFLNK		}
+{"$(PREFIX)",	1,	"$(PREFIX)$(SM):reEnable$(N)" 	}
+{"$(PREFIX)",	2,	"$(PREFIX)$(SM):reEnable$(N)"	}
+{"$(PREFIX)",	3,	"$(PREFIX)$(SM):reEnable$(N)"	}
+{"$(PREFIX)",	4,	"$(PREFIX)$(SM):reEnable$(N)"	}
+{"$(PREFIX)",	5,	"$(PREFIX)$(SM):reEnable$(N)"	}
+{"$(PREFIX)",	6,	"$(PREFIX)$(SM):reEnable$(N)"	}
+{"$(PREFIX)",	7,	"$(PREFIX)$(SM):reEnable$(N)"	}
+{"$(PREFIX)",	8,	"$(PREFIX)$(SM):reEnable$(N)"	}
+{"$(PREFIX)",	9,	"$(PREFIX)$(SM):reEnable$(N)"	}
+{"$(PREFIX)",	10,	"$(PREFIX)$(SM):reEnable$(N)"	}
+}
+
+file "$(SMAIL)/sMailApp/Db/streamMail_notifiers.db"
+{
+pattern
+{P, 			N,	WATCH,	TRIGGERVAL,	COMPTYPE,	FREQTYPE,	FREQENUM,	EMAILFROM,			EMAILTO		}
+{"$(PREFIX)",	1,	"",		0,			0,			0,			0,			"$(FROM)",	"$(TO)"}
+{"$(PREFIX)",	2,	"",		0,			0,			0,			0,			"$(FROM)",	"$(TO)"}
+{"$(PREFIX)",	3,	"",		0,			0,			0,			0,			"$(FROM)",	"$(TO)"}
+{"$(PREFIX)",	4,	"",		0,			0,			0,			0,			"$(FROM)",	"$(TO)"}
+{"$(PREFIX)",	5,	"",		0,			0,			0,			0,			"$(FROM)",	"$(TO)"}
+{"$(PREFIX)",	6,	"",		0,			0,			0,			0,			"$(FROM)",	"$(TO)"}
+{"$(PREFIX)",	7,	"",		0,			0,			0,			0,			"$(FROM)",	"$(TO)"}
+{"$(PREFIX)",	8,	"",		0,			0,			0,			0,			"$(FROM)",	"$(TO)"}
+{"$(PREFIX)",	9,	"",		0,			0,			0,			0,			"$(FROM)",	"$(TO)"}
+{"$(PREFIX)",	10,	"",		0,			0,			0,			0,			"$(FROM)",	"$(TO)"}
+}                   
+
