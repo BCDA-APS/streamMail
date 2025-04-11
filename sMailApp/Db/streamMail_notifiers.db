@@ -93,6 +93,7 @@ record(ao, "$(P)$(SM):condition$(N)_val"){
 	field(DESC, "Value compared to")
 	field(VAL, "$(TRIGGERVAL)")
     field(PINI, "NO")
+    field(PREC, "$(PREC=3)")
 }
 
 record(ao, "$(P)$(SM):condition$(N)_db"){
@@ -115,6 +116,7 @@ record(transform, "$(P)$(SM):condition$(N)") {
   field(SDIS, "$(P)$(SM):conditionEnable$(N) CA MS")
   field(FLNK, "$(P)$(SM):compose$(N).PROC CA")
   field(PINI, "NO")
+  field(PREC, "$(PREC=3)")
 }
 
 record(sseq, "$(P)$(SM):reEnable$(N)") {
