@@ -86,7 +86,7 @@ record(mbbo, "$(P)$(SM):condition$(N)_type"){
 	field(THST, "Greater than or Equal to")
 	field(FRST, "Greater than")
     field(PINI, "NO")
-    field(RVAL, "$(COMPTYPE)")
+    field(VAL, "$(COMPTYPE)")
 }
 
 record(ao, "$(P)$(SM):condition$(N)_val"){
@@ -240,7 +240,7 @@ record(mbbo,"$(P)$(SM):notifyType$(N)"){
 	field(ZRST, "Only on first event")
 	field(ONST, "At rate after first event")
 	field(TWST, "Wait and recheck")
-	field(RVAL, "$(FREQTYPE)")
+	field(VAL, "$(FREQTYPE)")
 }
 
 record(mbbo,"$(P)$(SM):notifyRate$(N)"){
@@ -250,7 +250,7 @@ record(mbbo,"$(P)$(SM):notifyRate$(N)"){
 	field(TWST, "15 minutes")
 	field(THST, "60 minutes")
 	field(FRST, "4 hours")
-	field(RVAL, "$(FREQENUM)")
+	field(VAL, "$(FREQENUM)")
 }
 
 record(calc,"$(P)$(SM):notifySeconds$(N)"){
