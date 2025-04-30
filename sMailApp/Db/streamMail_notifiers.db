@@ -180,14 +180,38 @@ record(calcout, "$(P)$(SM):notificationDisable$(N)_calc"){
 #!	field(CALC, "A&B")
 #!}
 
+record(bo, "$(P)$(SM):condition$(N)_fmt"){
+	field(ZNAM, "Decimal")
+	field(ONAM, "Scientific")
+	field(VAL, "$(FMT=0)")
+}
+
+record(scalcout, "$(P)$(SM):condition$(N)_str1"){
+	field(DESC, "Formatted watch value")
+	field(INPA, "$(WATCH) CP")
+	field(INPB, "$(P)$(SM):condition$(N)_fmt")
+	field(CALC, "B?PRINTF("%.2e",A):STR(A)")
+}
+
+record(scalcout, "$(P)$(SM):condition$(N)_str2"){
+	field(DESC, "Formatted trigger value")
+	field(INPA, "$(P)$(SM):condition$(N)_val CP")
+	field(INPB, "$(P)$(SM):condition$(N)_fmt")
+	field(CALC, "B?PRINTF("%.2e",A):STR(A)")
+}
+
 record(scalcout, "$(P)$(SM):compose$(N)"){
 	field(INPA, "$(P)$(SM):condition$(N).J")
     field(INPB, "$(P)$(SM):condition$(N).D")
     field(INPC, "$(P)$(SM):condition$(N)_val")
 #	field(INAA, "$(P)$(SM):condition$(N).INPD CA") 
 	field(INBB, "$(P)$(SM):condition$(N)_type CA")
+	field(INCC, "")
+	field(INEE, "")
 	field(DD, " ")
-	field(OCAL, "DD+STR(B)+DD+BB+DD+STR(C)")
+#	field(OCAL, "DD+STR(B)+DD+BB+DD+STR(C)")
+#	field(OCAL, "DD+PRINTF("%.2e",B)+DD+BB+DD+PRINTF("%.2e",C)")
+	field(OCAL, "DD+CC+DD+BB+DD+EE")
 	field(CALC, "A")
 	field(DOPT, "Use OCAL")
 	field(OOPT, "When Non-zero")
