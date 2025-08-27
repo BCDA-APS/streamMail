@@ -211,6 +211,7 @@ record(scalcout, "$(P)$(SM):compose$(N)"){
 	field(DD, " ")
 #	field(OCAL, "DD+STR(B)+DD+BB+DD+STR(C)")
 #	field(OCAL, "DD+PRINTF('%.2e',B)+DD+BB+DD+PRINTF('%.2e',C)")
+#	field(OCAL, "DD+PRINTF("%.2e",B)+DD+BB+DD+PRINTF("%.2e",C)")
 	field(OCAL, "DD+CC+DD+BB+DD+EE")
 	field(CALC, "A")
 	field(DOPT, "Use OCAL")
