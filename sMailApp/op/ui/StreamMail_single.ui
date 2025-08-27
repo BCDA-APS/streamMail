@@ -238,7 +238,7 @@
           <enum>caLineEdit::WidthAndHeight</enum>
          </property>
          <property name="formatType">
-          <enum>caLineEdit::decimal</enum>
+          <enum>caLineEdit::engr_notation</enum>
          </property>
         </widget>
        </item>
@@ -299,7 +299,7 @@
           <enum>caLineEdit::WidthAndHeight</enum>
          </property>
          <property name="formatType">
-          <enum>caLineEdit::decimal</enum>
+          <enum>caLineEdit::engr_notation</enum>
          </property>
         </widget>
        </item>

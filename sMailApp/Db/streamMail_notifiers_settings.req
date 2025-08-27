@@ -8,3 +8,6 @@ $(P)$(SM):condition$(N)_db
 $(P)$(SM):condition$(N).INPD
 $(P)$(SM):notifyType$(N)
 $(P)$(SM):notifyRate$(N)
+$(P)$(SM):condition$(N)_fmt
+$(P)$(SM):condition$(N)_val.PREC
+$(P)$(SM):condition$(N).PREC
