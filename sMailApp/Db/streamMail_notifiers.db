@@ -113,7 +113,7 @@ record(transform, "$(P)$(SM):condition$(N)") {
   field(OUTD, "$(P)$(SM):condition$(N)_str1.A PP")
   field(CLCE, "D < B?1:0")
   field(CLCF, "D <= B?1:0")
-  field(CLCG, "D == B?1:0")
+  field(CLCG, "D = B?1:0")
   field(CLCH, "D >= B?1:0")
   field(CLCI, "D > B?1:0")
   field(CLCJ, "@(A+4)")
@@ -262,13 +262,16 @@ record(scalcout, "$(P)$(SM):condition$(N)_PV"){
 #
 record(calcout, "$(P)$(SM):compose$(N)_valid"){
 	field(INPA, "$(P)$(SM):compose$(N).SEVR CP")
-	field(CALC, "A > 0?0:1")
+	field(INPB, "$(P)$(SM):sysReady CP")
+	field(CALC, "((A = 0) && (B = 1))?1:0")
 	field(OUT, "$(P)$(SM):composeLong$(N)_disable PP")
+	field(PINI, "YES")
 }
 
 record(bo, "$(P)$(SM):composeLong$(N)_disable"){
 	field(ZNAM, "Disabled")
 	field(ONAM, "Enabled")
+	field(PINI, "YES")
 }
 #
 ################################################################################
@@ -284,11 +287,11 @@ record(printf, "$(P)$(SM):composeLong$(N)") {
     field(INP2, "$(P)$(SM):message$(N)_part1")
     field(INP3, "$(P)$(SM):message$(N)_part2")
     field(INP4, "$(P)$(SM):message$(N)_part4")
-
     field(OUT, "$(P)$(SM):mail$(N) PP")
+
 ##
 #    
-    field(SDIS, "$(P)$(SM):composeLong$(N)_disable CP")
+    field(SDIS, "$(P)$(SM):composeLong$(N)_disable")
     field(DISV, "0")
 #
 ##

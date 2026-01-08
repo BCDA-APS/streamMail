@@ -38,3 +38,6 @@ dbLoadRecords("$(ASYN)/db/asynRecord.db","P=$(PREFIX),R=SMasyn,PORT=mailPORT,ADD
 
 asynSetTraceIOMask("mailPORT",0,0x1)
 asynSetTraceMask("mailPORT",0,0x9)
+
+# Set system to ready i.e. allow composing of emails (leading to sending of emails)
+doAfterIocInit("dbpf('$(PREFIX)$(SMPREFIX):sysReady', '1')")

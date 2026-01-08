@@ -53,3 +53,10 @@ record(calcout, "$(P)$(SM):UnsetDisable"){
   field(ODLY, "2.0")
   field(OUT, "$(P)$(SM):AllNotificationDisable PP")
 }
+
+record(bo, "$(P)$(SM):sysReady"){
+	field(ZNAM, "Not Ready")
+	field(ONAM, "Ready")
+	field(VAL, "0")
+	field(PINI, "YES")
+}
