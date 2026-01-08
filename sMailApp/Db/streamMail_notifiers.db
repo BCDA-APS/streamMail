@@ -100,12 +100,17 @@ record(ao, "$(P)$(SM):condition$(N)_db"){
 	field(DESC, "Deadband for condition value")
 }
 
+# WATCH macro definition should include the 'CP'
 record(transform, "$(P)$(SM):condition$(N)") {
   field(INPA, "$(P)$(SM):condition$(N)_type")
   field(INPB, "$(P)$(SM):condition$(N)_val")
+  field(CLCB, "B")
+  field(OUTB, "$(P)$(SM):condition$(N)_str2.A PP")
   field(INPC, "$(P)$(SM):condition$(N)_db")
   field(INPD, "$(WATCH)")
   field(CMTD, "PV set by user")
+  field(CLCD, "D")
+  field(OUTD, "$(P)$(SM):condition$(N)_str1.A PP")
   field(CLCE, "D < B?1:0")
   field(CLCF, "D <= B?1:0")
   field(CLCG, "D == B?1:0")
@@ -115,6 +120,7 @@ record(transform, "$(P)$(SM):condition$(N)") {
   field(DISV, "0")
   field(SDIS, "$(P)$(SM):conditionEnable$(N) CA MS")
   field(FLNK, "$(P)$(SM):compose$(N).PROC CA")
+#  field(FLNK, "$(P)$(SM):condition$(N)_str1.PROC CA")
   field(PINI, "NO")
   field(PREC, "$(PREC=3)")
 }
@@ -133,6 +139,7 @@ record(calcout, "$(P)$(SM):reSendCalc$(N)") {
 	field(CALC, "A=1?1:(A=2?B:0)")
 	field(OOPT, "When Non-zero")
 	field(OUT, "$(P)$(SM):composeLong$(N).PROC CA")
+#    field(OUT, "$(P)$(SM):condition$(N)_str1.PROC CA")
 }
 
 record(bo, "$(P)$(SM):conditionEnable$(N)"){
@@ -188,30 +195,45 @@ record(bo, "$(P)$(SM):condition$(N)_fmt"){
 
 record(scalcout, "$(P)$(SM):condition$(N)_str1"){
 	field(DESC, "Formatted watch value")
-	field(INPA, "$(WATCH) CP")
+#	field(INPA, "$(P)$(SM):condition$(N).D")
 	field(INPB, "$(P)$(SM):condition$(N)_fmt")
 	field(CALC, "B?PRINTF('%.2e',A):STR(A)")
+<<<<<<< HEAD
+=======
+#    field(FLNK, "$(P)$(SM):condition$(N)_str2.PROC CA")
+   	field(DISV, "0")
+	field(SDIS, "$(P)$(SM):notificationEnable$(N)")
+>>>>>>> 682c351 (Sorted stale data reporting (would trigger properly but included prior data value before condition triggered).)
 }
 
 record(scalcout, "$(P)$(SM):condition$(N)_str2"){
 	field(DESC, "Formatted trigger value")
-	field(INPA, "$(P)$(SM):condition$(N)_val CP")
+#	field(INPA, "$(P)$(SM):condition$(N)_val")
 	field(INPB, "$(P)$(SM):condition$(N)_fmt")
 	field(CALC, "B?PRINTF('%.2e',A):STR(A)")
+<<<<<<< HEAD
+=======
+#    field(FLNK, "$(P)$(SM):compose$(N).PROC CA")
+	field(DISV, "0")
+	field(SDIS, "$(P)$(SM):notificationEnable$(N)")
+>>>>>>> 682c351 (Sorted stale data reporting (would trigger properly but included prior data value before condition triggered).)
 }
 
 record(scalcout, "$(P)$(SM):compose$(N)"){
 	field(INPA, "$(P)$(SM):condition$(N).J")
-    field(INPB, "$(P)$(SM):condition$(N).D")
-    field(INPC, "$(P)$(SM):condition$(N)_val")
+#   field(INPB, "$(P)$(SM):condition$(N).D")
+#   field(INPC, "$(P)$(SM):condition$(N)_val")
 #	field(INAA, "$(P)$(SM):condition$(N).INPD CA") 
-	field(INBB, "$(P)$(SM):condition$(N)_type CA")
-	field(INCC, "")
-	field(INEE, "")
+	field(INBB, "$(P)$(SM):condition$(N)_type")
+	field(INCC, "$(P)$(SM):condition$(N)_str1.SVAL CA")
+	field(INEE, "$(P)$(SM):condition$(N)_str2.SVAL CA")
 	field(DD, " ")
 #	field(OCAL, "DD+STR(B)+DD+BB+DD+STR(C)")
 #	field(OCAL, "DD+PRINTF('%.2e',B)+DD+BB+DD+PRINTF('%.2e',C)")
+<<<<<<< HEAD
 #	field(OCAL, "DD+PRINTF("%.2e",B)+DD+BB+DD+PRINTF("%.2e",C)")
+=======
+>>>>>>> 682c351 (Sorted stale data reporting (would trigger properly but included prior data value before condition triggered).)
 	field(OCAL, "DD+CC+DD+BB+DD+EE")
 	field(CALC, "A")
 	field(DOPT, "Use OCAL")
@@ -239,12 +261,27 @@ record(waveform, "$(P)$(SM):message$(N)_part4"){
 	field(NELM, "256")
 }
 
-
+# Note: tried using '.PROC CA' in FLNK but that lead to infinite loop of emails on IOC startup?
 record(scalcout, "$(P)$(SM):condition$(N)_PV"){
 	field(INAA, "$(P)$(SM):condition$(N).INPD CA")
 	field(CALC, "SSCANF(AA,'%s')")
 	field(FLNK, "$(P)$(SM):composeLong$(N)")
 }
+
+################################################################################
+#
+record(calcout, "$(P)$(SM):compose$(N)_valid"){
+	field(INPA, "$(P)$(SM):compose$(N).SEVR CP")
+	field(CALC, "A > 0?0:1")
+	field(OUT, "$(P)$(SM):composeLong$(N)_disable PP")
+}
+
+record(bo, "$(P)$(SM):composeLong$(N)_disable"){
+	field(ZNAM, "Disabled")
+	field(ONAM, "Enabled")
+}
+#
+################################################################################
 
 record(printf, "$(P)$(SM):composeLong$(N)") {
 
@@ -259,7 +296,12 @@ record(printf, "$(P)$(SM):composeLong$(N)") {
     field(INP4, "$(P)$(SM):message$(N)_part4")
 
     field(OUT, "$(P)$(SM):mail$(N) PP")
-
+##
+#    
+    field(SDIS, "$(P)$(SM):composeLong$(N)_disable CP")
+    field(DISV, "0")
+#
+##
 }
 
 record(mbbo,"$(P)$(SM):notifyType$(N)"){
