@@ -198,12 +198,9 @@ record(scalcout, "$(P)$(SM):condition$(N)_str1"){
 #	field(INPA, "$(P)$(SM):condition$(N).D")
 	field(INPB, "$(P)$(SM):condition$(N)_fmt")
 	field(CALC, "B?PRINTF('%.2e',A):STR(A)")
-<<<<<<< HEAD
-=======
 #    field(FLNK, "$(P)$(SM):condition$(N)_str2.PROC CA")
    	field(DISV, "0")
 	field(SDIS, "$(P)$(SM):notificationEnable$(N)")
->>>>>>> 682c351 (Sorted stale data reporting (would trigger properly but included prior data value before condition triggered).)
 }
 
 record(scalcout, "$(P)$(SM):condition$(N)_str2"){
@@ -211,12 +208,9 @@ record(scalcout, "$(P)$(SM):condition$(N)_str2"){
 #	field(INPA, "$(P)$(SM):condition$(N)_val")
 	field(INPB, "$(P)$(SM):condition$(N)_fmt")
 	field(CALC, "B?PRINTF('%.2e',A):STR(A)")
-<<<<<<< HEAD
-=======
 #    field(FLNK, "$(P)$(SM):compose$(N).PROC CA")
 	field(DISV, "0")
 	field(SDIS, "$(P)$(SM):notificationEnable$(N)")
->>>>>>> 682c351 (Sorted stale data reporting (would trigger properly but included prior data value before condition triggered).)
 }
 
 record(scalcout, "$(P)$(SM):compose$(N)"){
@@ -230,10 +224,6 @@ record(scalcout, "$(P)$(SM):compose$(N)"){
 	field(DD, " ")
 #	field(OCAL, "DD+STR(B)+DD+BB+DD+STR(C)")
 #	field(OCAL, "DD+PRINTF('%.2e',B)+DD+BB+DD+PRINTF('%.2e',C)")
-<<<<<<< HEAD
-#	field(OCAL, "DD+PRINTF("%.2e",B)+DD+BB+DD+PRINTF("%.2e",C)")
-=======
->>>>>>> 682c351 (Sorted stale data reporting (would trigger properly but included prior data value before condition triggered).)
 	field(OCAL, "DD+CC+DD+BB+DD+EE")
 	field(CALC, "A")
 	field(DOPT, "Use OCAL")
