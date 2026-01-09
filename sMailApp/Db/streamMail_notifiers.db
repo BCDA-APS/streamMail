@@ -48,9 +48,7 @@ record(sseq, "$(P)$(SM):loop$(N)"){
 	field(SELM, "Mask")
 	field(SELL, "$(P)$(SM):loopMode$(N)")
 	# Single notification/Fixed frequency --> disables notifications
-#!	field(DOL1, "")
 	field(DO1, "0")
-#!	field(STR1, "")
 	field(LNK1, "$(P)$(SM):notificationEnable$(N) PP")
 	# Fixed frequency notifications/re-checks --> start timer, re-enables notifications
 	field(DOL2, "$(P)$(SM):notifySeconds$(N).VAL PP")
@@ -138,7 +136,8 @@ record(calcout, "$(P)$(SM):reSendCalc$(N)") {
 	field(INPB, "$(P)$(SM):condition$(N).J")
 	field(CALC, "A=1?1:(A=2?B:0)")
 	field(OOPT, "When Non-zero")
-	field(OUT, "$(P)$(SM):composeLong$(N).PROC CA")
+#	field(OUT, "$(P)$(SM):composeLong$(N).PROC CA")
+	field(OUT, "$(P)$(SM):compose$(N).PROC CA")
 #    field(OUT, "$(P)$(SM):condition$(N)_str1.PROC CA")
 }
 
@@ -199,8 +198,8 @@ record(scalcout, "$(P)$(SM):condition$(N)_str1"){
 	field(INPB, "$(P)$(SM):condition$(N)_fmt")
 	field(CALC, "B?PRINTF('%.2e',A):STR(A)")
 #    field(FLNK, "$(P)$(SM):condition$(N)_str2.PROC CA")
-   	field(DISV, "0")
-	field(SDIS, "$(P)$(SM):notificationEnable$(N)")
+#   	field(DISV, "0")
+#	field(SDIS, "$(P)$(SM):notificationEnable$(N)")
 }
 
 record(scalcout, "$(P)$(SM):condition$(N)_str2"){
@@ -209,12 +208,12 @@ record(scalcout, "$(P)$(SM):condition$(N)_str2"){
 	field(INPB, "$(P)$(SM):condition$(N)_fmt")
 	field(CALC, "B?PRINTF('%.2e',A):STR(A)")
 #    field(FLNK, "$(P)$(SM):compose$(N).PROC CA")
-	field(DISV, "0")
-	field(SDIS, "$(P)$(SM):notificationEnable$(N)")
+#	field(DISV, "0")
+#	field(SDIS, "$(P)$(SM):notificationEnable$(N)")
 }
 
 record(scalcout, "$(P)$(SM):compose$(N)"){
-	field(INPA, "$(P)$(SM):condition$(N).J")
+#!	field(INPA, "$(P)$(SM):condition$(N).J")
 #   field(INPB, "$(P)$(SM):condition$(N).D")
 #   field(INPC, "$(P)$(SM):condition$(N)_val")
 #	field(INAA, "$(P)$(SM):condition$(N).INPD CA") 
@@ -224,10 +223,11 @@ record(scalcout, "$(P)$(SM):compose$(N)"){
 	field(DD, " ")
 #	field(OCAL, "DD+STR(B)+DD+BB+DD+STR(C)")
 #	field(OCAL, "DD+PRINTF('%.2e',B)+DD+BB+DD+PRINTF('%.2e',C)")
-	field(OCAL, "DD+CC+DD+BB+DD+EE")
-	field(CALC, "A")
-	field(DOPT, "Use OCAL")
-	field(OOPT, "When Non-zero")
+#!	field(OCAL, "DD+CC+DD+BB+DD+EE")
+	field(CALC, "DD+CC+DD+BB+DD+EE")
+#!	field(CALC, "A")
+#!	field(DOPT, "Use OCAL")
+#!	field(OOPT, "When Non-zero")
 	field(OUT, "$(P)$(SM):message$(N)_part1 PP")
 	field(DISV, "0")
 	field(SDIS, "$(P)$(SM):notificationEnable$(N)")
