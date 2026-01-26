@@ -213,7 +213,7 @@ record(scalcout, "$(P)$(SM):condition$(N)_str2"){
 }
 
 record(scalcout, "$(P)$(SM):compose$(N)"){
-#!	field(INPA, "$(P)$(SM):condition$(N).J")
+	field(INPA, "$(P)$(SM):condition$(N).J")
 #   field(INPB, "$(P)$(SM):condition$(N).D")
 #   field(INPC, "$(P)$(SM):condition$(N)_val")
 #	field(INAA, "$(P)$(SM):condition$(N).INPD CA") 
@@ -223,11 +223,11 @@ record(scalcout, "$(P)$(SM):compose$(N)"){
 	field(DD, " ")
 #	field(OCAL, "DD+STR(B)+DD+BB+DD+STR(C)")
 #	field(OCAL, "DD+PRINTF('%.2e',B)+DD+BB+DD+PRINTF('%.2e',C)")
-#!	field(OCAL, "DD+CC+DD+BB+DD+EE")
-	field(CALC, "DD+CC+DD+BB+DD+EE")
-#!	field(CALC, "A")
-#!	field(DOPT, "Use OCAL")
-#!	field(OOPT, "When Non-zero")
+    field(OCAL, "DD+CC+DD+BB+DD+EE")
+#!	field(CALC, "DD+CC+DD+BB+DD+EE")
+	field(CALC, "A")
+	field(DOPT, "Use OCAL")
+	field(OOPT, "When Non-zero")
 	field(OUT, "$(P)$(SM):message$(N)_part1 PP")
 	field(DISV, "0")
 	field(SDIS, "$(P)$(SM):notificationEnable$(N)")
