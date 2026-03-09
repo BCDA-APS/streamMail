@@ -32,5 +32,5 @@ dbLoadTemplate("$(SMAIL)/sMailApp/Db/streamMail.substitutions","PREFIX=$(PREFIX)
 # use the following for troubleshooting
 dbLoadRecords("$(ASYN)/db/asynRecord.db","P=$(PREFIX),R=SMasyn,PORT=mailPORT,ADDR=0,OMAX=0,IMAX=256")
 
-asynSetTraceIOMask("mailPORT",0,0x1)
-asynSetTraceMask("mailPORT",0,0x9)
+#asynSetTraceIOMask("mailPORT",0,0x1)
+#asynSetTraceMask("mailPORT",0,0x9)
